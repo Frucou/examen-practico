@@ -2,8 +2,11 @@
 
 
 // Nodos
-const btn = document.querySelector(".btn")
-const resultado = document.querySelector(".resultado")
+const btn = document.querySelector(".btn");
+const resultado = document.querySelector(".resultado");
+const btn2 = document.querySelector(".btn2");
+const fraseImprimir = document.querySelector(".frase");
+const resultadoImprimir = document.querySelector(".frase-resultado");
 
 
 // Variables
@@ -18,7 +21,7 @@ const palos = () =>{
 // Funciones
 const sacarCarta = () => {
     let numPalos = palos();
-    console.log(numPalos)
+    // console.log(numPalos)
     switch(numPalos) {
         case 1: 
         return resultado.innerHTML = "Número: "+ numRandom() + ` <p>Palos: Oros.</p>`;
@@ -38,10 +41,25 @@ const sacarCarta = () => {
     
 }
 
+const frase = () => {
+    let guardarFrase = prompt("");
+    let fraseArray = guardarFrase.split()
+    console.log(fraseArray)
+    // resultadoImprimir.innerHTML = fraseArray.forEach()
+    fraseArray.forEach(element => console.log(element))
+    fraseImprimir.innerHTML = guardarFrase;
+    fraseImprimir.textContent
+}
+
 
 
 // Eventos
 btn.addEventListener(
     "click",
     sacarCarta
+);
+
+btn2.addEventListener(
+    "click",
+    frase
 );
