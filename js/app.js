@@ -19,36 +19,37 @@ const palos = () =>{
 }
 
 // Funciones
+//ejercicio 2
 const sacarCarta = () => {
     let numPalos = palos();
     // console.log(numPalos)
     switch(numPalos) {
         case 1: 
-        return resultado.innerHTML = "Número: "+ numRandom() + ` <p>Palos: Oros.</p>`;
-        
+        resultado.innerHTML = "Número: "+ numRandom() + ` <p>Palos: Oros.</p>`;
+        break;
         case 2: 
-        return resultado.innerHTML = "Número: "+ numRandom() + ` <p>Palos: Copas.</p>`;
-        
+        resultado.innerHTML = "Número: "+ numRandom() + ` <p>Palos: Copas.</p>`;
+        break;
         case 3: 
-        return resultado.innerHTML = "Número: "+ numRandom() + ` <p>Palos: Bastos.</p>`;
-        
+        resultado.innerHTML = "Número: "+ numRandom() + ` <p>Palos: Bastos.</p>`;
+        break;
         case 4: 
-        return resultado.innerHTML = "Número: "+ numRandom() + ` <p>Palos: Espadas.</p>`;
-       
-
+        resultado.innerHTML = "Número: "+ numRandom() + ` <p>Palos: Espadas.</p>`;
+        break;
     }
    
     
 }
 
+// Ejercicio4
 const frase = () => {
-    let guardarFrase = prompt("");
-    let fraseArray = guardarFrase.split()
+    let guardarFrase = prompt("Introduce una frase");
+    console.log(guardarFrase)
+    let fraseArray = guardarFrase.split(' ')
     console.log(fraseArray)
     // resultadoImprimir.innerHTML = fraseArray.forEach()
     fraseArray.forEach(element => console.log(element))
-    fraseImprimir.innerHTML = guardarFrase;
-    fraseImprimir.textContent
+    fraseImprimir.innerHTML = `<div>${fraseArray.join("<br>")}</div>`;
 }
 
 
