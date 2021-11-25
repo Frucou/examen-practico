@@ -7,6 +7,9 @@ const resultado = document.querySelector(".resultado");
 const btn2 = document.querySelector(".btn2");
 const fraseImprimir = document.querySelector(".frase");
 const resultadoImprimir = document.querySelector(".frase-resultado");
+// Ejercicio 5
+const fechaHoy = document.querySelector(".fecha-hora");
+const mostrar = document.querySelector(".mostrar-hora");
 // Ejercicio 8
 const images = document.querySelectorAll("img");
 // const salidaImagenes = document.querySelector(".imagenes")
@@ -63,6 +66,70 @@ const frase = () => {
     fraseImprimir.innerHTML = `<div>${fraseArray.join("<br>")}</div>`;
 }
 
+
+// Ejercicio 5
+
+// Funciones
+const unidades = (num) => {
+    switch(num) {
+        case 1: return "Uno";
+        case 2: return "Dos";
+        case 3: return "Tres";
+        case 4: return "Cuatro";
+        case 5: return "Cinco";
+        case 6: return "Seis";
+        case 7: return "Siete";
+        case 8: return "Ocho";
+        case 9: return "Nueve";
+
+    }
+
+    return "";
+}
+
+const decenas = (num) => {
+    let decena = Math.floor(num/10);
+    // console.log(decena);
+    let unidad = num - (decena * 10);
+    // console.log(unidad);
+
+    switch (decena) {
+        case 1: 
+            switch(unidad) {
+                case 0: return "Diez";
+                case 1: return "Once";
+                case 2: return "Doce";
+                case 3: return "Trece";
+                case 4: return "Catorce";
+                case 5: return "Quince";
+                default: return "Dieci" + unidades(unidad).toLocaleLowerCase();
+            }
+            case 2:
+                switch(unidad) {
+                    case 0: return "Veinte";
+                    default: return "Veinti" + unidades(unidad).toLocaleLowerCase();
+                }
+            case 3: return "Treinta";
+            default: return "Treintiuno";
+    }
+}
+
+
+const mostrarFechaHoy = () => {
+    let hoy = new Date();
+    let fecha = hoy.getDate() + '-' + (hoy.getMonth() + 1) + '-' + hoy.getFullYear();
+    let hora = hoy.getHours() + ':' + hoy.getMinutes() + ':' + hoy.getSeconds();
+    console.log(hoy);
+    console.log(fecha);
+    console.log(hora);
+    let fechaYHora = fecha + ' ' + hora;
+    mostrar.innerHTML = `<strong>${fechaYHora}</strong>`
+    console.log(unidades(1));
+    console.log(decenas(22));
+}
+
+
+
 //  Ejercicio 8
 const nombreImagen = () => {
     // console.log(images)
@@ -98,6 +165,12 @@ mensajeImg.addEventListener(
     "click",
     nombreImagen
 );
+
+fechaHoy.addEventListener(
+    "mouseover",
+    mostrarFechaHoy
+);
+
 
 btn3.addEventListener(
     "click",
